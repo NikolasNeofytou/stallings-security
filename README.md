@@ -4,6 +4,10 @@
 
 This repo turns Stallings & Brown's *Computer Security: Principles and Practice* into hands-on projects. Every chapter follows the same arc: **watch the attack succeed, read the theory, then build the defense.**
 
+<p align="center">
+  <img src="docs/pedagogy-flow.svg" alt="Pedagogy: Feel the Attack → Read → Build the Defense" width="100%"/>
+</p>
+
 Each project comes with a test suite. Your implementation is correct when all tests pass — including the test that recreates the exact attack scenario from Phase 1, but this time your defense handles it.
 
 ---
@@ -14,7 +18,14 @@ Each project comes with a test suite. Your implementation is correct when all te
 
 **Phase 2 — Read.** A guided reading connecting what you just witnessed to specific textbook sections. You know *why* you're reading — because you just saw the attack work.
 
-**Phase 3 — Build.** A TODO-scaffolded project with types and helpers provided. You implement the defense. A test suite with 4 tiers validates your work: basic functionality → edge cases → the Phase 1 attack scenario (now handled correctly) → deeper security properties.
+**Phase 3 — Build.** A TODO-scaffolded project with types and helpers provided. You implement the defense. A test suite with 4 tiers validates your work:
+
+```
+test_basic.py       →  Does the defense work at all?
+test_edges.py       →  Does it handle weird inputs?
+test_hard.py        →  Does it stop the Phase 1 attack?  ← the real test
+test_properties.py  →  Does the full pipeline hold together?
+```
 
 ---
 
@@ -32,21 +43,17 @@ Each project comes with a test suite. Your implementation is correct when all te
 
 ## Chapter 1: Threat Modeler
 
-The first project builds a systematic threat analysis tool. Phase 1 describes a small e-commerce app (MiniShop) and asks you to identify every threat you can think of. Then it reveals what you missed — and shows you the structured framework that finds them all.
+Phase 1 describes a small e-commerce app (MiniShop) and asks you to identify every threat. Then it reveals what you missed — and shows you the structured framework that finds them all.
 
-After reading Chapter 1, you implement 5 functions that build the framework yourself:
+After reading, you implement 5 functions:
 
 ```
-TODO 1: CIA Impact Assessment     → assess confidentiality, integrity, availability per asset
+TODO 1: CIA Impact Assessment     → rate confidentiality, integrity, availability per asset
 TODO 2: Threat Mapping            → validate and classify threats (passive vs active)
 TODO 3: Attack Surface Analysis   → identify entry points with exposed asset mapping
 TODO 4: Risk Scoring              → likelihood × impact, severity classification
-TODO 5: Report Generation         → orchestrate the full pipeline
+TODO 5: Report Generation         → orchestrate the full pipeline, produce summary stats
 ```
-
-The test suite recreates the MiniShop scenario from Phase 1 — the same threats, the same assets — and verifies your implementation produces correct risk scores and severity classifications.
-
-## Running It
 
 ```bash
 cd ch1-threat-modeler
@@ -65,6 +72,6 @@ All Phase 1 demos operate on local dummy data. No real credentials, no network a
 
 | Repo | Domain | Method |
 |---|---|---|
-| **This repo** | Computer Security | Feel the attack → Read → Build the defense (test suite) |
-| [cfo-microeconomics](https://github.com/USERNAME/cfo-microeconomics) | Economics | Puzzle → Read → Model → Debate → Data |
-| [clrs-algorithms](https://github.com/USERNAME/clrs-algorithms) | Algorithms | Feel the slowness → Read → Build and benchmark |
+| **This repo** | Computer Security | Feel the attack → Read → Build the defense |
+| [cfo-microeconomics](https://github.com/NikolasNeofytou/cfo-microeconomics) | Economics | Puzzle → Read → Model → Debate → Data |
+| [clrs-algorithms](https://github.com/NikolasNeofytou/clrs-algorithms) | Algorithms | Feel the slowness → Read → Build and benchmark |
