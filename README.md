@@ -1,4 +1,6 @@
-# Computer Security: Learn by Breaking, Then Building
+<p align="center">
+  <img src="docs/header.svg" alt="Computer Security — Stallings & Brown" width="100%"/>
+</p>
 
 > You tried to find every threat in a small web app using intuition. A systematic analysis found 24 threats across 8 assets. You missed the backup stored on the same server, the email spoofing vector, and the file upload that could overwrite server files. — *Chapter 1, Phase 1*
 
